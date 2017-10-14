@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+.build/
+coverage/
+npm-debug.log
+test-results.xml
+/.eslintrc
+tmp-package.json
+.awcache
