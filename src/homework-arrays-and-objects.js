@@ -10,18 +10,14 @@ return operations
     }
     obj[operation.date].operations.push(operation);
     operation.links.forEach(link => {
-      if (!linkIsExist(obj[operation.date].links, link))
+      if (!isLinkExists(obj[operation.date].links, link))
         obj[operation.date].links.push(link)
     });
     return obj;
   }, {});
 }
 
-function linkIsExist(previousLinksArray, linkForCompare) {
-  const hrefArray = previousLinksArray
-    .slice()
-    .map(link => link.href);
-  const currentHref = linkForCompare.href;
-  if (hrefArray.indexOf(currentHref) === -1) return false;
-  else return true;
+function isLinkExists(array, linkToCompare) {
+  return !!array
+    .find((link) => (link.href === linkToCompare.href))
 }
